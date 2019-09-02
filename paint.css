@@ -1,0 +1,102 @@
+.container {
+    padding: 30px 0px;
+}
+
+#sketchpad {
+    margin: auto;
+    width: 100%;
+    height: 800px;
+    background-repeat: repeat
+}
+
+.toolbar-side{
+	position: fixed;
+	z-index: 1000;
+	font-size: 30px;
+	width: 50px;
+}
+
+.toolbar {
+    background-color: #fafafa;
+    text-align: center;
+    display: inline-block;
+    list-style-type: none;
+    padding-left: 0px!important;
+}
+
+.toolbar .section {
+    clear: both;
+    padding: 10 0px;
+    border: 1px solid #bbb;
+    border-bottom: 1px solid #a0a0a0;
+    border-radius: 5px 5px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    cursor: hand;
+    background: url("images/hborder.png") repeat-x 0px -27px;
+}
+
+.toolbar .slider {
+    width: 100%
+}
+
+.toolbar .button {
+    float: left;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    cursor: pointer;
+    text-align: center
+}
+
+.toolbar .button.active {
+    background-color: rgba(0, 0, 0, .5);
+    color: rgba(255, 255, 255, 1)
+}
+
+iframe{
+	left: -58px!important;
+	top: -16px!important;
+	/*58px, 16px
+	transform: scale(1) rotate(0deg) translate(0px, 0px) translate(0px, 0px)!important;*/
+}
+
+#tool-highlighter-list{
+	display: none;
+	list-style-type: none;
+	position: absolute;
+	padding-left: 0px;
+	left: 50px;
+	top:50px;
+}
+
+#tool-line-list{
+	display: none;
+	list-style-type: none;
+	position: absolute;
+	padding-left: 0px;
+	left: 50px;
+	top:0px;
+}
+
+#tool-highlighter-black, #tool-line-black{
+	color:black;
+}
+
+#tool-highlighter-blue, #tool-line-blue{
+	color:blue;
+}
+
+#tool-highlighter-red, #tool-line-red{
+	color: red;
+}
+
+#tool-highlighter-green, #tool-line-green{
+	color:green;
+}
+
+.showlist{
+	display: flex!important;
+}
+

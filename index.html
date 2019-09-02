@@ -1,0 +1,22 @@
+select sum(v) v, n, fallback from ( select COUNT(ip) v, sub_id n, geo, countries, IF(LOCATE(geo, countries) > 0 or LOCATE('All', countries) = 1 or geo = 'NULL', 'false', 'true') as fallback from idevaff_iptracking t1 left join ((SELECT number as id, grp FROM idevaff_banners m1 LEFT JOIN idevaff_groups m2 ON m1.grp = m2.id WHERE src1 = 1) UNION (SELECT id, grp FROM idevaff_links m1 LEFT JOIN idevaff_groups m2 ON m1.grp = m2.id WHERE src1 = 3)) t2 on t1.src2 = t2.number left join idevaff_groups t3 on t2.grp = t3.id where acct_id = 106 and sub_id IS NOT NULL AND sub_id <> '' and stamp between '1557878400' and '1557964799' AND CONCAT(src1,' ',src2) LIKE '3 293' group by sub_id, geo order by v desc ) t4 group by t4.n, t4.fallback
+
+
+
+
+
+select COUNT(ip) v,src1,src2, geo from idevaff_iptracking where acct_id = 106 and src1 IS NOT NULL AND src1 <> ''  and src2 IS NOT NULL AND src2 <> '' and stamp between '1557878400' and '1557964799' AND CONCAT(src1,' ',src2) LIKE '3 293' group by src1,src2, geo order by v desc
+
+$link_query = "SELECT t1.`id`,t1.`grp`,t1.`linktext`,t1.`land`,t2.name, t2.`countries` FROM idevaff_links t1 LEFT JOIN idevaff_groups t2 ON t1.grp = t2.id WHERE t1.id = 293 and t1.grp = t2.id";
+
+(SELECT number, grp FROM idevaff_banners) UNION (SELECT id as number, grp FROM idevaff_links)
+
+select sum(v) v, n, fallback from ( select COUNT(ip) v, sub_id n, geo, countries, IF(LOCATE(geo, countries) > 0 or LOCATE('All', countries) = 1 or geo = 'NULL', 'false', 'true') as fallback from idevaff_iptracking t1 left join ((SELECT number as id, grp FROM idevaff_banners) UNION (SELECT id, grp FROM idevaff_links)) t2 on t1.src2 = t2.id left join idevaff_groups t3 on t2.grp = t3.id where acct_id = 106 and sub_id IS NOT NULL AND sub_id <> '' and stamp between '1557878400' and '1557964799' AND CONCAT(src1,' ',src2) LIKE '3 293' group by sub_id, geo order by v desc ) t4 group by t4.n, t4.fallback
+
+
+SELECT grp`,m1.`size1`,m1.`size2`,m1.`description`,m1.`language`,m2.name, m2.`countries` FROM idevaff_banners m1 LEFT JOIN idevaff_groups m2 ON m1.grp = m2.id WHERE m1.number = $src2 and m1.grp = m2.id
+
+SELECT grp`,m1.`linktext`,m1.`land`,m2.name, m2.`countries` FROM idevaff_links m1 LEFT JOIN idevaff_groups m2 ON m1.grp = m2.id WHERE m1.id = $src2 and m1.grp = m2.id";
+
+
+
+select sum(v) v, n, fallback from ( select COUNT(ip) v, sub_id n, geo, countries, IF(LOCATE(geo, countries) > 0 or LOCATE('All', countries) = 1 or geo = 'NULL', 'false', 'true') as fallback from idevaff_iptracking t1 left join idevaff_banners t2 on t1.src2 = t2.number left join idevaff_groups t3 on t2.grp = t3.id where acct_id = 106 and src1= 1 and sub_id IS NOT NULL AND sub_id <> '' and stamp between '1557878400' and '1557964799' AND CONCAT(src1,' ',src2) LIKE '5 5' group by sub_id, geo order by v desc ) t4 group by t4.n, t4.fallback union select sum(v) v, n, fallback from ( select COUNT(ip) v, sub_id n, geo, countries, IF(LOCATE(geo, countries) > 0 or LOCATE('All', countries) = 1 or geo = 'NULL', 'false', 'true') as fallback from idevaff_iptracking t1 left join idevaff_banners t2 on t1.src2 = t2.number left join idevaff_groups t3 on t2.grp = t3.id where acct_id = 106 and src1= 3 and sub_id IS NOT NULL AND sub_id <> '' and stamp between '1557878400' and '1557964799' AND CONCAT(src1,' ',src2) LIKE '5 5' group by sub_id, geo order by v desc ) t4 group by t4.n, t4.fallback
